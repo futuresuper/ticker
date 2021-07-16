@@ -48,6 +48,7 @@
 
 <style>
   select {
+    -webkit-appearance: none;
     font-family: inherit;
     background-color: black;
     color: white;
