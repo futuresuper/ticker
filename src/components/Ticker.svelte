@@ -47,8 +47,25 @@
 </div>
 
 <style>
+  select {
+    font-family: inherit;
+    background-color: black;
+    color: white;
+    font-size: 1.8rem;
+    border: 0;
+    border-bottom: 1px solid white;
+    outline: none;
+    margin: 1rem 0 3rem 0;
+  }
+
   .big-number {
     font-size: 6rem; /* Fallback */
-    font-size: clamp(2rem, 10vw, 24rem); /* Min, Variable, Max */
+    font-size: clamp(2rem, 10vw, 8rem); /* Min, Variable, Max */
+  }
+
+  @media (max-width: 580px) {
+    select {
+      font-size: 1.2rem;
+    }
   }
 </style>

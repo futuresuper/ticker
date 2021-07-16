@@ -1,55 +1,147 @@
 ---
 import Ticker from '../components/Ticker.svelte';
+const title = "Fossil Fuel Counter | Future Super";
+const description = "Find out the amount of fossil fuel subsidies given to the fossil fuel"
++ "industry by the Australian State and Federal Governments";
+const image = "https://www.futuresuper.com.au/images/future-super-og.png";
 ---
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Fossil fuel counter</title>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <title>{title}</title>
   <link rel="stylesheet" href="/style/global.css">
+  <meta name="description" content="" />
+  <meta property="og:title" content="{title}" />
+  <meta property="og:description" content="{description}" />
+  <meta property="og:image" content="{image}" />
+  <meta property="og:type" content="website" />
+  <meta property="twitter:title" content="{title}" />
+  <meta property="twitter:description" content="{description}" />
+  <meta property="twitter:image" content="{image}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.futuresuper.com.au/images/favicon/favicon-32.png">
+  <link rel="apple-touch-icon" href="https://www.futuresuper.com.au/images/favicon/apple-touch-icon.png">
   <style>
     body {
+      margin: 0;
+      font-family: "HelveticaNeueLTPro-Md", sans-serif;
       background-color: black;
       color: white;
-      font-size: 0.8rem;
-      /* Fallback */
-      font-size: clamp(0.8rem, 4vw, 1.6rem);
-      /* Min, Variable, Max */
+      padding: 4vh;
+    }
+
+    .container {
+      margin: 0 auto;
+      max-width: 1100px;
+      min-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     h1 {
       display: none
     }
+
+    h2 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    aside {
+      margin-top: 3rem;
+      display: grid;
+      grid-template-columns: 10% 15% 25% 50%;
+      font-size: 1rem;
+      font-size: 0.8rem;
+    }
+
+    aside>div>div {
+      font-size: 1.6rem;
+      border-top: 1px solid white;
+      border-bottom: 1px solid white;
+      border-left: 1px solid white;
+      padding: 1rem;
+      min-height: 8rem;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @media (max-width: 1100px) {
+      aside>div>div {
+        font-size: 1.2rem;
+      }
+    }
+
+    @media (max-width: 840px) {
+      aside {
+        grid-template-columns: 100%;
+      }
+
+      aside>div:nth-child(1) {
+        max-width: 15%
+      }
+
+      aside>div:nth-child(2) {
+        max-width: 25%
+      }
+
+      aside>div:nth-child(3) {
+        max-width: 40%
+      }
+
+      aside>div>div {
+        border: 1px solid white;
+        min-height: 4rem;
+      }
+    }
+
+    @media (max-width: 580px) {
+      h2 {
+        font-size: 1.2rem;
+      }
+
+      aside>div>div {
+        font-size: 0.8rem;
+
+        min-height: 2rem;
+      }
+    }
   </style>
 </head>
 
 <body>
-  <main>
-    <h1>Fossil fuel counter</h1>
-    <h2>The amount of fossil fuel subsidies given to the fossil fuel industry by the Australian State and Federal
-      Governments —</h2>
-    <Ticker client:visible />
-  </main>
-  <aside>
-    <div>
-      <p>Per second</p>
-      <div>$328.10</div>
-    </div>
-    <div>
-      <p>Per minute</p>
-      <div>$19,686</div>
-    </div>
-    <div>
-      <p>Per hour</p>
-      <div>$1,181,160</div>
-    </div>
-    <div>
-      <p>Per year</p>
-      <div>$10,365,961,600</div>
-    </div>
-  </aside>
+  <div class="container">
+    <main>
+      <h1>Fossil fuel counter</h1>
+      <h2>The amount of fossil fuel subsidies given to the fossil fuel industry by the Australian State and Federal
+        Governments —</h2>
+      <Ticker client:visible />
+    </main>
+    <aside>
+      <div>
+        <p>Per second</p>
+        <div>$328</div>
+      </div>
+      <div>
+        <p>Per minute</p>
+        <div>$19,686</div>
+      </div>
+      <div>
+        <p>Per hour</p>
+        <div>$1,181,160</div>
+      </div>
+      <div>
+        <p>Per year</p>
+        <div style="border-right: 1px solid white;">$10,365,961,600</div>
+      </div>
+    </aside>
+  </div>
+
 </body>
 
 </html>
