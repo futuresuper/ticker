@@ -4,7 +4,7 @@
   let number = 0;
   let selected = "site";
   let showOptions = false;
-  const dollarsPerSecond = 328.1;
+  const dollarsPerSecond = 19686 / 60;
   const speed = 50; // milliseconds per number change
   const siteArrivalTime = moment().format();
   const date = {

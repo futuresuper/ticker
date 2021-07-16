@@ -62,5 +62,6 @@
   }
   svg {
     animation: spin 10s linear infinite;
+    min-width: 42px;
   }
 </style>

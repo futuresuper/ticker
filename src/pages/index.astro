@@ -67,8 +67,16 @@ const green = "#00FF00";
       border: 1px solid white;
       border-radius: 100px;
       color: white;
-      padding: 0px 20px;
+      padding: 4px 20px 0 20px;
       margin-left: 1rem;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    a {
+      text-decoration: none;
     }
 
     .button:hover {
@@ -76,45 +84,31 @@ const green = "#00FF00";
       border-color: #00FF00;
     }
 
-    @media (max-width: 1100px) {
-      aside>div>div {
-        font-size: 1.2rem;
-      }
-    }
-
-    @media (max-width: 840px) {
-      aside {
-        grid-template-columns: 100%;
-      }
-
-      aside>div:nth-child(1) {
-        max-width: 15%
-      }
-
-      aside>div:nth-child(2) {
-        max-width: 25%
-      }
-
-      aside>div:nth-child(3) {
-        max-width: 40%
-      }
-
-      aside>div>div {
-        border: 1px solid white;
-        min-height: 4rem;
-      }
-    }
-
-    @media (max-width: 580px) {
+    @media (max-width: 680px) {
       h2 {
         font-size: 1.2rem;
       }
 
-      aside>div>div {
-        font-size: 0.8rem;
-
-        min-height: 2rem;
+      aside {
+        flex-direction: column;
       }
+
+      .button {
+        margin-left: 0;
+        margin-top: 1rem;
+      }
+    }
+
+    @media (max-width: 440px) {
+      .button-long-text {
+        display: none;
+      }
+    }
+
+    footer {
+      padding: 12vh 4vh 4vh 4vh;
+      margin: 0 auto;
+      max-width: 1100px;
     }
   </style>
 </head>
@@ -132,13 +126,33 @@ const green = "#00FF00";
         <p style="margin-right: 1rem;">This site was made by</p>
         <Logo />
       </div>
-      <div class="button" href="https://www.futuresuper.com.au/?utm_source=tickerlp">
-        <div style="margin-top: 2px">
-          <span style="color: #00FF00">Join now</span>&nbsp;to kick fossil fuels out of your super.
+      <a href="https://www.futuresuper.com.au/?utm_source=tickerlp">
+        <div class="button">
+          <div class="button-text">
+            <span style="color: #00FF00">Join now</span>
+            <span class="button-long-text">&nbsp;to kick fossil fuels out of your super</span>
+          </div>
         </div>
-      </div>
+      </a>
     </aside>
+
   </div>
+  <footer>
+    <p>Data based on <a style="color: white; text-decoration: underline;"
+        href="https://australiainstitute.org.au/post/australian-fossil-fuel-subsidies-hit-10-3-billion-in-2020-21/">findings
+        from The Australia Institute</a>.
+    </p>
+    <p>We acknowledge the Traditional Custodians of the lands on which we operate. We pay our respects to their
+      Elders, past, present and emerging, and recognise that sovereignty was never ceded. See our Reconciliation
+      Action Plan.
+    </p>
+    <p>All information provided is general in nature only. We recommend you seek financial advice when considering if
+      Future Super is right for your objectives and needs. When considering returns, past performance is not
+      indicative of future performance.
+    </p>
+    <p>Fund Information • Terms & Conditions • Privacy Policy
+    </p>
+  </footer>
 
 </body>
 
