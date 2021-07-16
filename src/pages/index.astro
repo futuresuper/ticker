@@ -1,9 +1,11 @@
 ---
 import Ticker from '../components/Ticker.svelte';
+import Logo from '../components/Logo.svelte'
 const title = "Fossil Fuel Counter | Future Super";
 const description = "Find out the amount of fossil fuel subsidies given to the fossil fuel"
 + " industry by the Australian State and Federal Governments";
 const image = "https://www.futuresuper.com.au/images/future-super-og.png";
+const green = "#00FF00";
 ---
 <html lang="en">
 
@@ -51,24 +53,27 @@ const image = "https://www.futuresuper.com.au/images/future-super-og.png";
     }
 
     aside {
-      margin-top: 3rem;
-      display: grid;
-      grid-template-columns: 10% 15% 25% 50%;
+      margin: 3rem 0 1rem 0;
+      display: flex;
       font-size: 1rem;
-      font-size: 0.8rem;
     }
 
-    aside>div>div {
-      font-size: 1.6rem;
-      border-top: 1px solid white;
-      border-bottom: 1px solid white;
-      border-left: 1px solid white;
-      padding: 1rem;
-      min-height: 8rem;
-      text-align: center;
+    aside>div {
       display: flex;
-      justify-content: center;
       align-items: center;
+    }
+
+    .button {
+      border: 1px solid white;
+      border-radius: 100px;
+      color: white;
+      padding: 0px 20px;
+      margin-left: 1rem;
+    }
+
+    .button:hover {
+      cursor: pointer;
+      border-color: #00FF00;
     }
 
     @media (max-width: 1100px) {
@@ -124,20 +129,13 @@ const image = "https://www.futuresuper.com.au/images/future-super-og.png";
     </main>
     <aside>
       <div>
-        <p>Per second</p>
-        <div>$328</div>
+        <p style="margin-right: 1rem;">This site was made by</p>
+        <Logo />
       </div>
-      <div>
-        <p>Per minute</p>
-        <div>$19,686</div>
-      </div>
-      <div>
-        <p>Per hour</p>
-        <div>$1,181,160</div>
-      </div>
-      <div>
-        <p>Per year</p>
-        <div style="border-right: 1px solid white;">$10,365,961,600</div>
+      <div class="button">
+        <div style="margin-top: 2px">
+          <span style="color: #00FF00">Join now</span>&nbsp;to kick fossil fuels out of your super.
+        </div>
       </div>
     </aside>
   </div>
