@@ -4,16 +4,19 @@
   let number = 0;
   let selected = "site";
   let showOptions = false;
-  const dollarsPerSecond = 19686 / 60;
+  const dollarsPerSecond = 402;
   const speed = 50; // milliseconds per number change
   const siteArrivalTime = moment().format();
-  const date = {
+  const startTime = {
     site: moment(siteArrivalTime),
     startofday: moment().startOf("day"),
-    jan1: moment("2021-01-01"),
-    covid: moment("2019-11-17"), // First case, Source: https://en.wikipedia.org/wiki/COVID-19_pandemic
-    budget: moment("2021-05-11"), // Source: https://budget.gov.au/
-    bushfires: moment("2019-09-06"), // Source: https://en.wikipedia.org/wiki/2019%E2%80%9320_Australian_bushfire_season#Domestic_response
+    oneJuly21: moment("2021-07-01"),
+  };
+  const dollarsAt30June21 = {
+    jan1: 5991000000,
+    covid: 19439380822,
+    budget: 1641369863,
+    bushfires: 21815183562,
   };
   const description = {
     site: "Since coming to this site",
@@ -30,9 +33,13 @@
   const handleChange = (since) => {
     selected = since;
     const now = moment();
-    const difference = now.diff(date[since], "seconds");
-    number = difference * dollarsPerSecond;
-    console.log(number);
+    if (since === "site" || since === "startofday") {
+      const difference = now.diff(startTime[since], "seconds");
+      number = difference * dollarsPerSecond;
+    } else {
+      number =
+        dollarsAt30June21[since] + now.diff(startTime.oneJuly21, "seconds");
+    }
   };
 
   const toggleShowOptions = () => {
@@ -40,8 +47,8 @@
   };
 
   onMount(() => {
-    console.log(date.startofday.format());
-    console.log(date.jan1.format());
+    // console.log(startTime.startofday.format());
+    // console.log(startTime.jan1.format());
     setInterval(() => {
       number = number + dollarsPerSecond / (1000 / speed);
     }, speed);
